@@ -4,7 +4,10 @@
   "description": "learn webpack4 and react redux and docker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "webpack --mode development --watch",
+    "prod": "webpack --mode production --watch",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -32,5 +35,8 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "file-loader": "^3.0.1"
   }
 }
