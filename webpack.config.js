@@ -1,14 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require("path")
 
 module.exports = {
-    entry: [
-        './assets/sass/index.scss'
-    ],
-    output: {
-        path:__dirname + "/dist",
-        filename: 'index.js'
-    },
+    entry: ["./src/index.js","./assets/sass/index.scss"],
+    output: { 
+        path: path.join(__dirname, "/dist"),
+        filename: "index.js"
+    } ,
     module: {
         rules: [
             {
@@ -23,7 +22,18 @@ module.exports = {
             {
                 test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg)$/,
                 loader: 'file-loader'
-            }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-class-properties']
+                  }
+                }
+              },
         ]
     },
     watchOptions: {
@@ -43,7 +53,7 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             server: {
-                baseDir: ['.']
+                baseDir: ['dist']
             }
         })
     ]
