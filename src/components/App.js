@@ -6,6 +6,7 @@ class App extends Component {
         return(
         <div>
             <h1>projet react redux and docker with webpack</h1>
+            <h2>test</h2>
         </div>
         )
     }
