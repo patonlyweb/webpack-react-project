@@ -3,6 +3,16 @@
 
 ## Usage
 
+Build via yarn :
+
+    yarn build
+
+Puis on sert le site via un docker nginx en montant le site dans le container :
+
+    docker-compose -f docker-compose-dev.yml up -d
+
+## Usage full docker
+
 
 ### Build
 
